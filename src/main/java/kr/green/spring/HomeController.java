@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Handles requests for the application home page.
- * controller - annotationÀ» ÅëÇØ ÀÌ¸§¸¸ ºÙÀÎ °ÍÀÌ ¾Æ´Ï¶ó ±â´É ±¸Çö
- * logger - ·Î±× ±â·ÏÀ» Âï¾îÁÜ
+ * @Controller - annotationì„ í•´ ì£¼ë©´ ì´ë¦„ë§Œ ë¶™ì´ëŠ” ê²ƒì´ ì•„ë‹ˆë¼ ê¸°ëŠ¥ê¹Œì§€ êµ¬í˜„
+ * logger - ë¡œê·¸í•œ ê¸°ë¡ì„ ë³´ì—¬ì¤Œ
  */
 @Controller
 public class HomeController {
@@ -25,7 +25,8 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String homeGet(Locale locale, Model model) {
+		
 		logger.info("Welcome home! The client locale is {}.", locale);
 		
 		Date date = new Date();
@@ -37,8 +38,14 @@ public class HomeController {
 		
 		return "home";
 	}
-	@RequestMapping(value = "/test", method = RequestMethod.GET)
-	public String testGet() {
-		return "test";
+		
+		@RequestMapping(value = "/", method = RequestMethod.POST)
+		public String homePost(String name) {
+			System.out.println("jspì—ì„œ ë„˜ì–´ì˜¨ ê°’ :" + name);
+			
+			return "redirect:/";
+		
+
 	}
+
 }
