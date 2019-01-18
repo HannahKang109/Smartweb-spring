@@ -8,13 +8,19 @@
 	<h1>회원가입</h1>
 	<form method="post" action="<%=request.getContextPath()%>/signup">
 		<div>
-			<input type="text" name="id">
+			아이디<input type="text" name="id">
 		</div>
 		<div>
-			<input type="password" name="pw">
+			비번<input type="password" name="pw">
 		</div>
 		<div>
-			<input type="email" name="email">
+			이메일<input type="email" name="email">
+		</div>
+		<div>
+			성별<input type="radio" value="male" name="gender" id="male">
+			<label for="male">남성</label>		
+			<input type="radio" value="female" name="gender" id="female">		
+			<label for="female">여성</label>	
 		</div>
 		<button>회원가입</button>
 	</form>

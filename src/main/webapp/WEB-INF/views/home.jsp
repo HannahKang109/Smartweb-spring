@@ -14,8 +14,10 @@
 <%--<form method="post" action="/spring/">이렇게 이름을 넣어줄 수 있지만 이름 바뀔때마다 바꿔줘야 하므로 하기와 같이함--%>
 <form method="post" action="<%=request.getContextPath() %>/">
 	<%-- 전달하려는 데이터가 있는 태그의 속성 name을 입력 --%>
-	<input type="text" name="name">
-	<button>제출</button>
+	아이디<input type="text" name="id"><br>
+	비밀번호<input type="password" name="pw"><br>
+	<button>로그인</button>
 </form>	
+<a href="<%=request.getContextPath() %>/signup">아이디가 없다면 회원가입</a>
 </body>
 </html>
