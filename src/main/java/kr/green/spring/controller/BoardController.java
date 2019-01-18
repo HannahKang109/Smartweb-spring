@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 //uri중 bbs로 들어오는 애들은 아래와 같이 넘어가라
 @RequestMapping(value="/bbs")
 public class BoardController {
-	@RequestMapping(value="/bbs/list")
+	@RequestMapping(value="/list")
 	public String list() {
 		return "bbs/list";
 	}

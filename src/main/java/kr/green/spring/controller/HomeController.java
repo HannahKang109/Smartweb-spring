@@ -35,14 +35,18 @@ public class HomeController {
 		
 
 		@RequestMapping(value = "/", method = RequestMethod.POST)
-		public String homePost(String id, String pw) {
-			if(accountService.signin(id,pw)) 
+		public String homePost(String id, String pw, Model model) {
+			AccountVo user = accountService.signin(id,pw);
+			if(user != null){ 
+				model.addAttribute("user", user);
 				return "redirect:/bbs/list";
-			else
+			}
+			else {
 			/* jsp에서 넘겨준 데이터를 받기 위해 태그의 속성 name과 일치하는 이름을 매개변수의 이름으로 설정*/
 //			System.out.println("아이디 :" + id);
 //			System.out.println("비밀번호 :" + pw);
 			return "redirect:/";
+			}
 	}
 		@RequestMapping(value = "/signup", method = RequestMethod.GET)
 		public String signupGet(Boolean fail, Model model) {

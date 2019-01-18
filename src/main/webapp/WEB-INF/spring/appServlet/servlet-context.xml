@@ -22,7 +22,26 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="kr.green.spring" />
-	
-	
-	
+	<beans:bean id="loginInterceptor" 
+	class="kr.green.spring.interceptor.LoginInterceptor"></beans:bean>
+	<beans:bean id="unauthInterceptor" 
+	class="kr.green.spring.interceptor.UnauthInterceptor"></beans:bean>
+	<beans:bean id="authInterceptor" 
+	class="kr.green.spring.interceptor.AuthInterceptor"></beans:bean>
+	<interceptors>
+    <interceptor>
+    		<!--메인 페이지에서 / signup 페이지에서 인터셉터 구현-->
+        <mapping path="/"/>
+        <beans:ref bean="loginInterceptor"/>
+    </interceptor>
+        <interceptor>
+        <mapping path="/"/>
+        <mapping path="/signup"/>
+        <beans:ref bean="unauthInterceptor"/>
+    </interceptor>
+        <interceptor>
+        <mapping path="/bbs/*"/>
+        <beans:ref bean="authInterceptor"/>
+    </interceptor>
+	</interceptors>
 </beans:beans>

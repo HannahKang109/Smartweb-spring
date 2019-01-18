@@ -7,6 +7,7 @@
 <title>로그인</title>
 </head>
 <body>
-
+${user.id}
+${user.gender}
 </body>
 </html>
